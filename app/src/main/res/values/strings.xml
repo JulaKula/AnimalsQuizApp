@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="welcome">Welcome to my Quiz App!</string>
+    <string name="info">Here you\'ll find questions related to the extincted animals. Hope you\'ll learn something new.
+        \nThese species presented below are lost to the world, but remember, that we can
+        still save other endangered animals! \nAre you ready to help the world? Visit:</string>
+    <string name="rhino_question">What is the main reason for the extinction of the western black rhinoceros?</string>
+    <string name="rhino_answer1">Climate change</string>
+    <string name="rhino_answer2">Habitat degradation</string>
+    <string name="rhino_answer3">Pouching</string>
+    <string name="rhino_answer4">Genetic disease</string>
+    <string name="tarpan_question">Tarpan (Equus ferus ferus), was also known as:</string>
+    <string name="tarpan_answer1">Domestic donkey</string>
+    <string name="tarpan_answer2">Eurasian wild horse</string>
+    <string name="tarpan_answer3">Kiang</string>
+    <string name="tarpan_answer4">Przewalski\'s horse</string>
+    <string name="quagga_question">Which of the following information about the quagga is correct?</string>
+    <string name="quagga_answer1">It lived in South Africa</string>
+    <string name="quagga_answer2">It was 125\-135cm tall (at the shoulder)</string>
+    <string name="quagga_answer3">The last captive specimen died in Amsterdam on 12 August 1883</string>
+    <string name="quagga_answer4">In the Quagga Project scientists recreated quagga\'s population by cloning</string>
+    <string name="tiger_question">What is(are) the reason(s) for the extinction of the Javan tiger?</string>
+    <string name="tiger_answer1">Deforestation, habitat degradation</string>
+    <string name="tiger_answer2">Poisoning of tigers and their prey</string>
+    <string name="tiger_answer3">Hunting</string>
+    <string name="tiger_answer4">Lack of the most important prey species, rusa deer</string>
+    <string name="tortoise_question">The picture shows the last known individual of the Pinta giant tortoise, what was its name?</string>
+    <string name="tortoise_answer1">Speedy Gonzales</string>
+    <string name="tortoise_answer2">Lonesome George</string>
+    <string name="tortoise_answer3">Big Ben</string>
+    <string name="tortoise_answer4">Flash</string>
+    <string name="seal_question">The last confirmed sighting of the Caribbean Monk Seal was at Serranilla Bank, between Jamaica and
+        Nicaragua. Which year was it?</string>
+    <string name="seal_hint">Year (e.g. 2018)</string>
+    <string name="seal_answer">1952</string>
+    <string name="sub">SUBMIT</string>
+    <string name="res">RESET</string>
+    <string name="result">Your result: %1$x/6</string>
+    <string name="result_6">Congrats! You\'re awesome!</string>
+    <string name="result_45">Nice! \nReview the quiz to see correct answers</string>
+    <string name="result_3">Half way ;) \nReview the quiz to see correct answers</string>
+    <string name="result_21">Not that bad - it could have been 0 ;) \nReview the quiz to see correct answers</string>
+    <string name="result_0">It couldn\'t be worse, but it\'s just a game ;) \nReview the quiz to see correct answers</string>
+    <string name="website">http://wwf.panda.org/</string>
+</resources>
+
+
+
+
+
+
+
