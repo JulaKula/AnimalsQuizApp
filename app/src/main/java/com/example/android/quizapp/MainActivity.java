@@ -19,29 +19,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     int userResult = 0;
-    CheckBox answer1_1;
-    CheckBox answer1_2;
-    CheckBox answer1_3;
-    CheckBox answer1_4;
-    CheckBox answer6_1;
-    CheckBox answer6_2;
-    CheckBox answer6_3;
-    CheckBox answer6_4;
-    RadioButton answer2_rb;
-    RadioButton answer4_rb;
-    RadioButton answer5_rb;
-    RadioButton answer2_rb_1;
-    RadioButton answer2_rb_2;
-    RadioButton answer2_rb_3;
-    RadioButton answer4_rb_1;
-    RadioButton answer4_rb_2;
-    RadioButton answer4_rb_3;
-    RadioButton answer5_rb_1;
-    RadioButton answer5_rb_2;
-    RadioButton answer5_rb_3;
+    CheckBox answer1_1, answer1_2, answer1_3, answer1_4, answer6_1, answer6_2, answer6_3, answer6_4;
+    RadioButton answer2_rb, answer4_rb, answer5_rb, answer2_rb_1, answer2_rb_2, answer2_rb_3,
+            answer4_rb_1, answer4_rb_2, answer4_rb_3, answer5_rb_1, answer5_rb_2, answer5_rb_3;
     EditText answer3_edit;
-    TextView summary;
-    TextView seal;
+    TextView summary, seal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
