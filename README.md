@@ -1,6 +1,6 @@
 This is my Project 3 from Google Developer Challenge Scholarship: Android Basics.
 
-It is a quiz app about extincted aminals
+It is a quiz app about extincted animals
 
 <img src = "Screenshots/Screenshot_portrait.png" width=300 > <img src = "Screenshots/Screenshot_landscape.png" height=300 >
 
