@@ -8,42 +8,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
         android:orientation="vertical"
         android:padding="@dimen/middle">
-
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/small"
             android:text="@string/welcome"
-            android:textSize="@dimen/header"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/header" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/info"/>
+            android:text="@string/info" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/website"
-            android:autoLink="web"/>
+            android:autoLink="web"
+            android:text="@string/website" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/quagga" />
 
         <TextView
@@ -79,18 +69,10 @@
             android:paddingLeft="@dimen/small"
             android:text="@string/quagga_answer4" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/black_rhino" />
 
         <TextView
@@ -133,18 +115,10 @@
 
         </RadioGroup>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/seal" />
 
         <TextView
@@ -168,18 +142,10 @@
             android:text=""
             android:textColor="@color/colorAccent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/tarpan" />
 
         <TextView
@@ -222,18 +188,10 @@
 
         </RadioGroup>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/tortoise" />
 
         <TextView
@@ -276,18 +234,10 @@
 
         </RadioGroup>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small"
-            android:layout_marginTop="@dimen/big"
-            android:adjustViewBounds="true"
+            style="@style/ImagesInPortrait"
             android:src="@drawable/java_tiger" />
 
         <TextView
@@ -328,7 +278,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/big"
@@ -338,7 +288,7 @@
                 android:text="@string/sub" />
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/big"

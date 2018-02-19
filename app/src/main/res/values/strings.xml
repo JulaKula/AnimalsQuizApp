@@ -3,7 +3,8 @@
     <string name="welcome">Welcome to my Quiz App!</string>
     <string name="info">Here you\'ll find questions related to the extincted animals. Hope you\'ll learn something new.
         \nThese species presented below are lost to the world, but remember, that we can
-        still save other endangered animals! \nAre you ready to help the world? Visit:</string>
+        still save other endangered animals! \nAre you ready to help the world? You can start by visiting:</string>
+    <string name="website">http://wwf.panda.org/</string>
     <string name="rhino_question">What is the main reason for the extinction of the western black rhinoceros?</string>
     <string name="rhino_answer1">Climate change</string>
     <string name="rhino_answer2">Habitat degradation</string>
@@ -41,7 +42,6 @@
     <string name="result_3">Half way ;) \nReview the quiz to see correct answers</string>
     <string name="result_21">Not that bad - it could have been 0 ;) \nReview the quiz to see correct answers</string>
     <string name="result_0">It couldn\'t be worse, but it\'s just a game ;) \nReview the quiz to see correct answers</string>
-    <string name="website">http://wwf.panda.org/</string>
 </resources>
 
 

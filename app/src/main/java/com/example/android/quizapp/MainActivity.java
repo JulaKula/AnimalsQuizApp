@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     int userResult = 0;
     CheckBox answer1_1, answer1_2, answer1_3, answer1_4, answer6_1, answer6_2, answer6_3, answer6_4;
-    RadioButton answer2_rb, answer4_rb, answer5_rb, answer2_rb_1, answer2_rb_2, answer2_rb_3,
-            answer4_rb_1, answer4_rb_2, answer4_rb_3, answer5_rb_1, answer5_rb_2, answer5_rb_3;
+    RadioButton answer2_rb, answer2_rb_1, answer2_rb_2, answer2_rb_3, answer4_rb, answer4_rb_1,
+            answer4_rb_2, answer4_rb_3, answer5_rb, answer5_rb_1, answer5_rb_2, answer5_rb_3;
     EditText answer3_edit;
     TextView summary, seal;
 
@@ -54,125 +54,111 @@ public class MainActivity extends AppCompatActivity {
         summary = findViewById(R.id.summary);
         seal = findViewById(R.id.seal_correct_answer);
 
+        //Avoid popping-up keyboard after every rotation
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
-
     public void submit(View view) {
-        //Checks answer, shows correct answer for question 1
+        //Check answer, show correct answer for question 1
         if (answer1_1.isChecked() && answer1_2.isChecked() && answer1_3.isChecked() && !answer1_4.isChecked())
             userResult++;
-        else if (answer1_4.isChecked()) answer1_4.setTextColor(getResources().getColor(R.color.red));
-
+        else if (answer1_4.isChecked())
+            answer1_4.setTextColor(getResources().getColor(R.color.red));
         answer1_1.setTextColor(getResources().getColor(R.color.colorAccent));
         answer1_2.setTextColor(getResources().getColor(R.color.colorAccent));
         answer1_3.setTextColor(getResources().getColor(R.color.colorAccent));
 
-
-        //Checks answer, shows correct answer for question 2
+        //Check answer, show correct answer for question 2
         if (answer2_rb.isChecked()) userResult++;
-        else if (answer2_rb_1.isChecked()) {
+        else if (answer2_rb_1.isChecked())
             answer2_rb_1.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer2_rb_2.isChecked()) {
+        else if (answer2_rb_2.isChecked())
             answer2_rb_2.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer2_rb_3.isChecked()) {
+        else if (answer2_rb_3.isChecked())
             answer2_rb_3.setTextColor(getResources().getColor(R.color.red));
-        }
         answer2_rb.setTextColor(getResources().getColor(R.color.colorAccent));
 
-
-        //Checks answer, shows correct answer for question 3
+        //Check answer, show correct answer for question 3
         if (answer3_edit.getText().toString().equals("1952")) {
             answer3_edit.setTextColor(getResources().getColor(R.color.colorAccent));
             userResult++;
         } else {
-            answer3_edit.getText();
             answer3_edit.setTextColor(getResources().getColor(R.color.red));
             seal.setText(R.string.seal_answer);
         }
+        answer3_edit.clearFocus();
 
-        //Checks answer, shows correct answer for question 4
+        //Check answer, show correct answer for question 4
         if (answer4_rb.isChecked()) userResult++;
-        else if (answer4_rb_1.isChecked()) {
+        else if (answer4_rb_1.isChecked())
             answer4_rb_1.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer4_rb_2.isChecked()) {
+        else if (answer4_rb_2.isChecked())
             answer4_rb_2.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer4_rb_3.isChecked()) {
+        else if (answer4_rb_3.isChecked())
             answer4_rb_3.setTextColor(getResources().getColor(R.color.red));
-        }
         answer4_rb.setTextColor(getResources().getColor(R.color.colorAccent));
 
-
-        //Checks answer, shows correct answer for question 5
+        //Check answer, show correct answer for question 5
         if (answer5_rb.isChecked()) userResult++;
-        else if (answer5_rb_1.isChecked()) {
+        else if (answer5_rb_1.isChecked())
             answer5_rb_1.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer5_rb_2.isChecked()) {
+        else if (answer5_rb_2.isChecked())
             answer5_rb_2.setTextColor(getResources().getColor(R.color.red));
-        }else if (answer5_rb_3.isChecked()) {
+        else if (answer5_rb_3.isChecked())
             answer5_rb_3.setTextColor(getResources().getColor(R.color.red));
-        }
         answer5_rb.setTextColor(getResources().getColor(R.color.colorAccent));
 
-
-        //Checks answer, shows correct answer for question 6
+        //Check answer, show correct answer for question 6
         if (answer6_1.isChecked() && answer6_2.isChecked() && answer6_3.isChecked() && answer6_4.isChecked())
             userResult++;
-
         answer6_1.setTextColor(getResources().getColor(R.color.colorAccent));
         answer6_2.setTextColor(getResources().getColor(R.color.colorAccent));
         answer6_3.setTextColor(getResources().getColor(R.color.colorAccent));
         answer6_4.setTextColor(getResources().getColor(R.color.colorAccent));
 
-        //Displays the toast with user's result
+        //Display the toast with user's result
         Resources res = getResources();
         String text = String.format(res.getString(R.string.result), userResult);
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
 
-        //Displays suitable message, corresponding to user's result
+        //Display suitable message, corresponding to user's result
         if (userResult == 6) summary.setText(R.string.result_6);
         else if (userResult == 5 || userResult == 4) summary.setText(R.string.result_45);
         else if (userResult == 3) summary.setText(R.string.result_3);
         else if (userResult == 2 || userResult == 1) summary.setText(R.string.result_21);
         else if (userResult == 0) summary.setText(R.string.result_0);
 
+        //Set userResult to 0, to avoid problems when submit button is clicked more than once
         userResult = 0;
-
-
     }
 
-    //Restores the default look of the app - removes checks, clears some texts and restores colors
+    //Restore the default look of the app - reset the result, remove checks, clear texts and restore basic colors
     public void reset(View view) {
-
         userResult = 0;
 
         RadioGroup radio_g_2 = findViewById(R.id.radio_g_2);
-        RadioGroup radio_g_4 = findViewById(R.id.radio_g_4);
-        RadioGroup radio_g_5 = findViewById(R.id.radio_g_5);
-
         radio_g_2.clearCheck();
+        RadioGroup radio_g_4 = findViewById(R.id.radio_g_4);
         radio_g_4.clearCheck();
+        RadioGroup radio_g_5 = findViewById(R.id.radio_g_5);
         radio_g_5.clearCheck();
 
-        answer3_edit.setText("");
-        answer3_edit.clearFocus();
-        summary.setText("");
-        seal.setText("");
+        RadioButton[] myRadioArray = new RadioButton[]{answer2_rb, answer2_rb_1, answer2_rb_2,
+                answer2_rb_3, answer4_rb, answer4_rb_1, answer4_rb_2, answer4_rb_3, answer5_rb,
+                answer5_rb_1, answer5_rb_2, answer5_rb_3};
+        for (RadioButton aMyRadioArray : myRadioArray)
+            aMyRadioArray.setTextColor(getResources().getColor(R.color.black));
 
         CheckBox[] myBoxArray = new CheckBox[]{answer1_1, answer1_2, answer1_3, answer1_4,
                 answer6_1, answer6_2, answer6_3, answer6_4};
-
         for (CheckBox aMyStringArray : myBoxArray) {
             aMyStringArray.setTextColor(getResources().getColor(R.color.black));
             if (aMyStringArray.isChecked()) aMyStringArray.toggle();
         }
 
-        RadioButton[] myRadioArray = new RadioButton[]{answer2_rb, answer4_rb, answer5_rb, answer2_rb_1,
-                answer2_rb_2, answer2_rb_3, answer4_rb_1, answer4_rb_2, answer4_rb_3, answer5_rb_1,
-                answer5_rb_2, answer5_rb_3};
-
-        for (RadioButton aMyRadioArray : myRadioArray)
-            aMyRadioArray.setTextColor(getResources().getColor(R.color.black));
-
+        answer3_edit.setText("");
+        answer3_edit.clearFocus();
+        summary.setText("");
+        seal.setText("");
     }
-
 }

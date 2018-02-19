@@ -7,6 +7,40 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize">@dimen/text</item>
+        <item name="android:colorBackground">@color/background</item>
+    </style>
+
+    <style name="DividingLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line</item>
+        <item name="android:layout_marginTop">@dimen/big</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="ImagesInPortrait">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/small</item>
+        <item name="android:layout_marginTop">@dimen/big</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="ImagesInLand">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/big</item>
+        <item name="android:layout_marginTop">@dimen/big</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="QandALL">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/middle</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 </resources>

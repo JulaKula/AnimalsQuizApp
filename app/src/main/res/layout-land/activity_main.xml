@@ -8,56 +8,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
         android:orientation="vertical"
         android:padding="@dimen/middle">
-
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/small"
             android:text="@string/welcome"
-            android:textSize="@dimen/header"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/header" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/info"/>
+            android:text="@string/info" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/website"
-            android:autoLink="web"/>
+            android:autoLink="web"
+            android:text="@string/website" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/quagga" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,36 +74,22 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/small"
                     android:text="@string/quagga_answer4" />
+
             </LinearLayout>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/black_rhino" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,32 +135,17 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/seal" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -218,32 +172,17 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/tarpan" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -289,32 +228,17 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/tortoise" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -360,32 +284,17 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line"
-            android:layout_marginTop="@dimen/big"
-            android:background="@color/colorPrimary" />
+        <View style="@style/DividingLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/big"
-                android:layout_marginTop="@dimen/big"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
+                style="@style/ImagesInLand"
                 android:src="@drawable/java_tiger" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/middle"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <LinearLayout style="@style/QandALL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -429,7 +338,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/big"
@@ -439,7 +348,7 @@
                 android:text="@string/sub" />
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="@dimen/zero"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/big"
