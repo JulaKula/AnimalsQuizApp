@@ -34,13 +34,19 @@
         <item name="android:adjustViewBounds">true</item>
     </style>
 
-    <style name="QandALL">
+    <style name="LandscapeQuestionsLayout">
         <item name="android:layout_width">@dimen/zero</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/middle</item>
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Answers">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/small</item>
     </style>
 
 </resources>

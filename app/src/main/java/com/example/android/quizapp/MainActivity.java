@@ -1,87 +1,54 @@
 package com.example.android.quizapp;
 
 import android.content.res.Resources;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.quizapp.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    int userResult = 0;
-    boolean submitPressed, afterRotationToast;
-    Button submitButton;
-    CheckBox answer1_1, answer1_2, answer1_3, answer1_4, answer6_1, answer6_2, answer6_3, answer6_4;
-    RadioButton answer2_rb, answer2_rb_1, answer2_rb_2, answer2_rb_3, answer4_rb, answer4_rb_1,
-            answer4_rb_2, answer4_rb_3, answer5_rb, answer5_rb_1, answer5_rb_2, answer5_rb_3;
-    EditText answer3_edit;
-    TextView summary, seal;
+    static final String isSubmitted = "submitButtonWasClicked";
+    ActivityMainBinding binding;
+    private int userResult;
+    private boolean submitPressed;
+    private boolean afterRotationToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        answer1_1 = findViewById(R.id.ans1_1t);
-        answer1_2 = findViewById(R.id.ans1_2t);
-        answer1_3 = findViewById(R.id.ans1_3t);
-        answer1_4 = findViewById(R.id.ans1_4f);
-        answer2_rb = findViewById(R.id.ans2_rb);
-        answer2_rb_1 = findViewById(R.id.ans2_rb_1);
-        answer2_rb_2 = findViewById(R.id.ans2_rb_2);
-        answer2_rb_3 = findViewById(R.id.ans2_rb_3);
-        answer3_edit = findViewById(R.id.ans3_edit);
-        answer4_rb = findViewById(R.id.ans4_rb);
-        answer4_rb_1 = findViewById(R.id.ans4_rb_1);
-        answer4_rb_2 = findViewById(R.id.ans4_rb_2);
-        answer4_rb_3 = findViewById(R.id.ans4_rb_3);
-        answer5_rb = findViewById(R.id.ans5_rb);
-        answer5_rb_1 = findViewById(R.id.ans5_rb_1);
-        answer5_rb_2 = findViewById(R.id.ans5_rb_2);
-        answer5_rb_3 = findViewById(R.id.ans5_rb_3);
-        answer6_1 = findViewById(R.id.ans6_1t);
-        answer6_2 = findViewById(R.id.ans6_2t);
-        answer6_3 = findViewById(R.id.ans6_3t);
-        answer6_4 = findViewById(R.id.ans6_4t);
-        summary = findViewById(R.id.summary);
-        seal = findViewById(R.id.seal_correct_answer);
-        submitButton = findViewById(R.id.submitButton);
-
-        if (savedInstanceState != null)
-            submitPressed = savedInstanceState.getBoolean("isSubmitted");
-
-        answer3_edit.clearFocus();
+        if (savedInstanceState != null) {
+            submitPressed = savedInstanceState.getBoolean(isSubmitted);
+        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putBoolean("isSubmitted", submitPressed);
+        savedInstanceState.putBoolean(isSubmitted, submitPressed);
     }
 
+    //Call the submit method if submitButton was clicked before the rotation
+    //Avoid displaying toast, popping-up keyboard and focusing on EditText after rotation
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        savedInstanceState.getBoolean("isSubmitted");
-
-        //Restore the look of the app, if submitButton was clicked before the rotation
-        //Avoid displaying toast after rotation
         if (submitPressed) {
             afterRotationToast = true;
-            submitButton.performClick();
+            binding.submitButton.performClick();
         }
-
-        //Avoid popping-up keyboard after rotation
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        answer3_edit.clearFocus();
+        binding.ans3Edit.clearFocus();
+        binding.welcome.requestFocus();
     }
 
     public void submit(View view) {
@@ -90,65 +57,13 @@ public class MainActivity extends AppCompatActivity {
         userResult = 0;
         submitPressed = true;
 
-        //Check answer, show correct answer for question 1
-        if (answer1_1.isChecked() && answer1_2.isChecked() && answer1_3.isChecked() && !answer1_4.isChecked())
-            userResult++;
-        else if (answer1_4.isChecked())
-            answer1_4.setTextColor(getResources().getColor(R.color.red));
-        answer1_1.setTextColor(getResources().getColor(R.color.colorAccent));
-        answer1_2.setTextColor(getResources().getColor(R.color.colorAccent));
-        answer1_3.setTextColor(getResources().getColor(R.color.colorAccent));
-
-        //Check answer, show correct answer for question 2
-        if (answer2_rb.isChecked())
-            userResult++;
-        else if (answer2_rb_1.isChecked())
-            answer2_rb_1.setTextColor(getResources().getColor(R.color.red));
-        else if (answer2_rb_2.isChecked())
-            answer2_rb_2.setTextColor(getResources().getColor(R.color.red));
-        else if (answer2_rb_3.isChecked())
-            answer2_rb_3.setTextColor(getResources().getColor(R.color.red));
-        answer2_rb.setTextColor(getResources().getColor(R.color.colorAccent));
-
-        //Check answer, show correct answer for question 3
-        if (answer3_edit.getText().toString().equals("1952")) {
-            answer3_edit.setTextColor(getResources().getColor(R.color.colorAccent));
-            userResult++;
-        } else {
-            answer3_edit.setTextColor(getResources().getColor(R.color.red));
-            seal.setText(R.string.seal_answer);
-        }
-        answer3_edit.clearFocus();
-
-        //Check answer, show correct answer for question 4
-        if (answer4_rb.isChecked())
-            userResult++;
-        else if (answer4_rb_1.isChecked())
-            answer4_rb_1.setTextColor(getResources().getColor(R.color.red));
-        else if (answer4_rb_2.isChecked())
-            answer4_rb_2.setTextColor(getResources().getColor(R.color.red));
-        else if (answer4_rb_3.isChecked())
-            answer4_rb_3.setTextColor(getResources().getColor(R.color.red));
-        answer4_rb.setTextColor(getResources().getColor(R.color.colorAccent));
-
-        //Check answer, show correct answer for question 5
-        if (answer5_rb.isChecked())
-            userResult++;
-        else if (answer5_rb_1.isChecked())
-            answer5_rb_1.setTextColor(getResources().getColor(R.color.red));
-        else if (answer5_rb_2.isChecked())
-            answer5_rb_2.setTextColor(getResources().getColor(R.color.red));
-        else if (answer5_rb_3.isChecked())
-            answer5_rb_3.setTextColor(getResources().getColor(R.color.red));
-        answer5_rb.setTextColor(getResources().getColor(R.color.colorAccent));
-
-        //Check answer, show correct answer for question 6
-        if (answer6_1.isChecked() && answer6_2.isChecked() && answer6_3.isChecked() && answer6_4.isChecked())
-            userResult++;
-        answer6_1.setTextColor(getResources().getColor(R.color.colorAccent));
-        answer6_2.setTextColor(getResources().getColor(R.color.colorAccent));
-        answer6_3.setTextColor(getResources().getColor(R.color.colorAccent));
-        answer6_4.setTextColor(getResources().getColor(R.color.colorAccent));
+        //Check answers, show correct answers for all questions
+        check1();
+        checkRadioGroup(binding.ans2Rb, binding.ans2Rb1, binding.ans2Rb2, binding.ans2Rb3);
+        check3();
+        checkRadioGroup(binding.ans4Rb, binding.ans4Rb1, binding.ans4Rb2, binding.ans4Rb3);
+        checkRadioGroup(binding.ans5Rb, binding.ans5Rb1, binding.ans5Rb2, binding.ans5Rb3);
+        check6();
 
         //Display the toast with user's result
         if (!afterRotationToast) {
@@ -159,45 +74,93 @@ public class MainActivity extends AppCompatActivity {
         afterRotationToast = false;
 
         //Display suitable message, corresponding to user's result
-        if (userResult == 6)
-            summary.setText(R.string.result_6);
-        else if (userResult == 5 || userResult == 4)
-            summary.setText(R.string.result_45);
-        else if (userResult == 3)
-            summary.setText(R.string.result_3);
-        else if (userResult == 2 || userResult == 1)
-            summary.setText(R.string.result_21);
-        else if (userResult == 0)
-            summary.setText(R.string.result_0);
+        if (userResult == 6) {
+            binding.summary.setText(R.string.result_6);
+        } else if (userResult == 5 || userResult == 4) {
+            binding.summary.setText(R.string.result_45);
+        } else if (userResult == 3) {
+            binding.summary.setText(R.string.result_3);
+        } else if (userResult == 2 || userResult == 1) {
+            binding.summary.setText(R.string.result_21);
+        } else if (userResult == 0) {
+            binding.summary.setText(R.string.result_0);
+        }
     }
 
-    //Restore the default look of the app - reset the result, remove checks, clear texts and restore basic colors
+    //Next 4 methods check answers given in the quiz
+    private void check1() {
+        if (binding.ans11t.isChecked() && binding.ans12t.isChecked() && binding.ans13t.isChecked() && !binding.ans14f.isChecked()) {
+            userResult++;
+        } else if (binding.ans14f.isChecked()) {
+            binding.ans14f.setTextColor(getResources().getColor(R.color.red));
+        }
+        binding.ans11t.setTextColor(getResources().getColor(R.color.colorAccent));
+        binding.ans12t.setTextColor(getResources().getColor(R.color.colorAccent));
+        binding.ans13t.setTextColor(getResources().getColor(R.color.colorAccent));
+    }
+
+    private void checkRadioGroup(RadioButton correctAnswer, RadioButton wrongAnswer1,
+                                 RadioButton wrongAnswer2, RadioButton wrongAnswer3) {
+        if (correctAnswer.isChecked()) {
+            userResult++;
+        } else if (wrongAnswer1.isChecked()) {
+            wrongAnswer1.setTextColor(getResources().getColor(R.color.red));
+        } else if (wrongAnswer2.isChecked()) {
+            wrongAnswer2.setTextColor(getResources().getColor(R.color.red));
+        } else if (wrongAnswer3.isChecked()) {
+            wrongAnswer3.setTextColor(getResources().getColor(R.color.red));
+        }
+        correctAnswer.setTextColor(getResources().getColor(R.color.colorAccent));
+    }
+
+    private void check3() {
+        if (binding.ans3Edit.getText().toString().equals("1952")) {
+            binding.ans3Edit.setTextColor(getResources().getColor(R.color.colorAccent));
+            userResult++;
+        } else {
+            binding.ans3Edit.setTextColor(getResources().getColor(R.color.red));
+            binding.sealCorrectAnswer.setText(R.string.seal_answer);
+        }
+        binding.ans3Edit.clearFocus();
+    }
+
+    private void check6() {
+        if (binding.ans61t.isChecked() && binding.ans62t.isChecked() && binding.ans63t.isChecked() && binding.ans64t.isChecked()) {
+            userResult++;
+        }
+        binding.ans61t.setTextColor(getResources().getColor(R.color.colorAccent));
+        binding.ans62t.setTextColor(getResources().getColor(R.color.colorAccent));
+        binding.ans63t.setTextColor(getResources().getColor(R.color.colorAccent));
+        binding.ans64t.setTextColor(getResources().getColor(R.color.colorAccent));
+    }
+
+    //Restore the default look of the app - reset the result, clear texts, remove checks and restore basic colors
     //update submitPressed boolean
     public void reset(View view) {
         userResult = 0;
         submitPressed = false;
-        answer3_edit.setText("");
-        answer3_edit.setTextColor(getResources().getColor(R.color.black));
-        answer3_edit.clearFocus();
-        seal.setText("");
-        summary.setText("");
-        RadioGroup radio_g_2 = findViewById(R.id.radio_g_2);
-        radio_g_2.clearCheck();
-        RadioGroup radio_g_4 = findViewById(R.id.radio_g_4);
-        radio_g_4.clearCheck();
-        RadioGroup radio_g_5 = findViewById(R.id.radio_g_5);
-        radio_g_5.clearCheck();
+        binding.ans3Edit.setText("");
+        binding.ans3Edit.clearFocus();
+        binding.sealCorrectAnswer.setText("");
+        binding.summary.setText("");
 
-        CompoundButton[] myButtons = new CompoundButton[]{answer1_1, answer1_2, answer1_3,
-                answer1_4, answer6_1, answer6_2, answer6_3, answer6_4, answer2_rb, answer2_rb_1,
-                answer2_rb_2, answer2_rb_3, answer4_rb, answer4_rb_1, answer4_rb_2, answer4_rb_3,
-                answer5_rb, answer5_rb_1, answer5_rb_2, answer5_rb_3};
-        for (CompoundButton aMyButtons : myButtons) {
-            aMyButtons.setTextColor(getResources().getColor(R.color.black));
+        TextView[] allViews = new TextView[]{binding.ans11t, binding.ans12t, binding.ans13t,
+                binding.ans14f, binding.ans61t, binding.ans62t, binding.ans63t, binding.ans64t,
+                binding.ans2Rb, binding.ans2Rb1, binding.ans2Rb2, binding.ans2Rb3, binding.ans4Rb,
+                binding.ans4Rb1, binding.ans4Rb2, binding.ans4Rb3, binding.ans5Rb, binding.ans5Rb1,
+                binding.ans5Rb2, binding.ans5Rb3, binding.ans3Edit};
+        for (TextView allMyViews : allViews) {
+            allMyViews.setTextColor(getResources().getColor(R.color.black));
         }
-        for (int i = 0; i < 8; i++) {
-            if (myButtons[i].isChecked())
-                myButtons[i].toggle();
+
+        CompoundButton[] myButtons = new CompoundButton[]{binding.ans11t, binding.ans12t, binding.ans13t,
+                binding.ans14f, binding.ans61t, binding.ans62t, binding.ans63t, binding.ans64t};
+        for (CompoundButton myCompoundButtons : myButtons) {
+            myCompoundButtons.setChecked(false);
         }
+
+        binding.radioG2.clearCheck();
+        binding.radioG4.clearCheck();
+        binding.radioG5.clearCheck();
     }
 }
